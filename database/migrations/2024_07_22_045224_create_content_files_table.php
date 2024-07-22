@@ -11,14 +11,16 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('content_videos', function (Blueprint $table) {
+        Schema::create('content_files', function (Blueprint $table) {
             $table->id();
             $table->string('content_uid')->unique();
+            $table->string('category')->nullable();
             $table->string('name')->unique();
             $table->string('name_slug')->unique();
-            $table->string('file_dir');
-            $table->enum('status', ['draft', 'published', 'archived'])->default('draft');
+            $table->string('file_src');
+            $table->enum('status', ['draft', 'published', 'archived']);
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 
@@ -27,6 +29,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('content_videos');
+        Schema::dropIfExists('content_files');
     }
 };
