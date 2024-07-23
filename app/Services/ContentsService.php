@@ -37,5 +37,7 @@ class ContentsService extends ContentsRepository
         {
             Storage::delete($imagePath);
         }
+
+        return parent::deleteById($id);
     }
 }
