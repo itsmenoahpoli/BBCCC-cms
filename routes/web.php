@@ -7,4 +7,4 @@ Route::get('/', function () {
     return view('http://image-cms-app.test');
 });
 
-Route::get('files-storage/get', [FilesStorageController::class, 'getImageByPath']);
+Route::get('assets/get', [FilesStorageController::class, 'getImageByPath']);

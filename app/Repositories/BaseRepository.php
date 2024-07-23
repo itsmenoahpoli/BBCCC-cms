@@ -47,7 +47,7 @@ class BaseRepository implements BaseRepositoryInterface
         return $this->model->create($data);
     }
 
-    public function updateById($id, $data)
+    public function updateById($id, $data, $file = null)
     {
         return tap($this->model->find($id))->update($data)->first();
     }

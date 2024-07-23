@@ -22,10 +22,11 @@ class CreateContentRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name'          => 'required|string|unique:content_files',
             'category'      => 'required|string',
-            'name'          => 'required|string',
+            'group'         => 'nullable|string',
             'status'        => 'nullable|enum:draft,published,archived',
-            'image'         => 'required|image|mimes:jpeg,png,gif|max:2048'
+            'file'          => 'required|image|mimes:jpeg,png,gif|max:2048'
         ];
     }
 }

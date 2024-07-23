@@ -2,10 +2,11 @@
 
 namespace App\Repositories;
 
+use Illuminate\Support\Str;
 use Illuminate\Database\Eloquent\Model;
 use App\Repositories\BaseRepository;
 
-class ContentFilesRepository extends BaseRepository
+class ContentsRepository extends BaseRepository
 {
     public function __construct(
         private readonly Model $model,
@@ -20,5 +21,13 @@ class ContentFilesRepository extends BaseRepository
             $shownRelationshipsInList,
             []
         );
+    }
+
+    public function create($payload)
+    {
+        $payload['content_uid'] = Str::uuid();
+        $payload['name_slug'] = Str::slug($payload['name']);
+
+        return parent::create($payload);
     }
 }

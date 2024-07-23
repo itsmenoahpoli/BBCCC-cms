@@ -14,10 +14,12 @@ return new class extends Migration
         Schema::create('content_files', function (Blueprint $table) {
             $table->id();
             $table->string('content_uid')->unique();
-            $table->string('category')->nullable();
             $table->string('name')->unique();
             $table->string('name_slug')->unique();
-            $table->string('file_src');
+            $table->string('category')->nullable();
+            $table->string('group')->nullable();
+            $table->string('file_path')->unique();
+            $table->string('file_url')->unique();
             $table->enum('status', ['draft', 'published', 'archived']);
             $table->timestamps();
             $table->softDeletes();
