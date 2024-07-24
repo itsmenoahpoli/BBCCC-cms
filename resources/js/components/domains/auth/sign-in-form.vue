@@ -29,25 +29,23 @@ const onFormSubmit = handleSubmit(async (formData: any) => {
 </script>
 
 <template>
-  <FwbCard class="min-w-[400px] hover:bg-white p-5">
-    <h1 class="text-center font-bold mb-3">SIGN IN TO DASHBOARD</h1>
+  <h1 class="text-center font-bold mb-3">SIGN IN TO DASHBOARD</h1>
 
-    <form @submit.prevent.once="onFormSubmit" class="flex flex-col gap-y-3">
-      <FwbInput
-        v-model="email.value"
-        :ref="email.ref"
-        class="text-xs"
-        placeholder="Enter e-mail"
-      />
-      <FwbInput
-        v-model="password.value"
-        :ref="password.ref"
-        class="text-xs"
-        placeholder="Enter password"
-      />
-      <FwbButton type="submit">SIGN IN</FwbButton>
-    </form>
-  </FwbCard>
+  <form @submit.prevent.once="onFormSubmit" class="flex flex-col gap-y-3">
+    <FwbInput
+      v-model="email.value"
+      :ref="email.ref"
+      class="text-xs"
+      placeholder="Enter e-mail"
+    />
+    <FwbInput
+      v-model="password.value"
+      :ref="password.ref"
+      class="text-xs"
+      placeholder="Enter password"
+    />
+    <FwbButton type="submit">SIGN IN</FwbButton>
+  </form>
 </template>
 
 <style lang="scss" scoped></style>

@@ -1,5 +1,9 @@
-<script lang="ts" setup></script>
+<script lang="ts" setup>
+import SignInForm from "~/components/domains/auth/sign-in-form.vue";
+</script>
 
-<template></template>
+<template>
+  <SignInForm />
+</template>
 
 <style lang="scss" scoped></style>

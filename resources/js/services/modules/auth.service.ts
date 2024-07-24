@@ -1,5 +1,6 @@
 import { toast } from "vue3-toastify";
 import { BaseService } from "~/services/base.service";
+import { useAuthStore } from "~/store";
 import type { Credentials } from "~/types/auth";
 
 export const AuthService = {
@@ -11,7 +12,11 @@ export const AuthService = {
     return this.http
       .post("/auth/login", credentials)
       .then((response) => {
-        console.log(credentials);
+        const { token, user } = response.data;
+        const { SET_AUTH } = useAuthStore();
+
+        SET_AUTH(user, token);
+
         console.log(response);
       })
       .catch((error) => {
