@@ -3,8 +3,8 @@
 use App\Http\Controllers\FilesStorageController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', function () {
+Route::get('{any}', function () {
     return view('index');
-});
+})->where('any', '^(?!api\/)[\/\w\.-]*');
 
 Route::get('assets/get', [FilesStorageController::class, 'getImageByPath']);

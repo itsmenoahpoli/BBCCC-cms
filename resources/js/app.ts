@@ -1,5 +1,6 @@
 import { createApp, App } from "vue";
 import { createPinia, Pinia } from "pinia";
+import { VueQueryPlugin } from "@tanstack/vue-query";
 import piniaPluginPersistedstate from "pinia-plugin-persistedstate";
 import VueFeather from "vue-feather";
 
@@ -19,5 +20,6 @@ app.component(VueFeather.name!, VueFeather);
  */
 app.use(pinia);
 app.use(appRouter);
+app.use(VueQueryPlugin);
 
 app.mount("#app");
