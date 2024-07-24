@@ -1,4 +1,3 @@
-import { toast } from "vue3-toastify";
 import { BaseService } from "~/services/base.service";
 import { useAuthStore } from "~/store";
 import type { Credentials } from "~/types/auth";
@@ -16,12 +15,12 @@ export const AuthService = {
         const { SET_AUTH } = useAuthStore();
 
         SET_AUTH(user, token);
+        this.showDialog("success", "Authenticated, redirecting to dashboard");
 
-        console.log(response);
+        window.location.href = "/dashboard";
       })
       .catch((error) => {
-        toast.error("Invalid credentials provided");
-        console.log(error);
+        this.showDialog("error", "Invalid credentials provided", error);
       });
   },
 };
