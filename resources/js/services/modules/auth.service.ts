@@ -1,3 +1,4 @@
+import { toast } from "vue3-toastify";
 import { BaseService } from "~/services/base.service";
 import type { Credentials } from "~/types/auth";
 
@@ -14,6 +15,7 @@ export const AuthService = {
         console.log(response);
       })
       .catch((error) => {
+        toast.error("Invalid credentials provided");
         console.log(error);
       });
   },
