@@ -1,5 +1,5 @@
 import { BaseService } from "~/services/base.service";
 
-export const AuthService = {
+export const ContentsService = {
   ...BaseService,
 };

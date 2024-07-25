@@ -12,6 +12,7 @@
         "axios": "^1.7.2",
         "laravel-vite-plugin": "^1.0",
         "postcss": "^8.4.39",
+        "prettier": "^3.3.3",
         "tailwindcss": "^3.4.6",
         "ts-loader": "^9.5.1",
         "typescript": "^5.5.4",
